@@ -1,0 +1,83 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Syne", ui-sans-serif, system-ui, sans-serif;
+  --color-ink: #07090d;
+  --color-panel: #0f141c;
+  --color-panel-2: #151c28;
+  --color-line: #243044;
+  --color-muted: #8b9bb4;
+  --color-text: #e8eef8;
+  --color-accent: #3dff9a;
+  --color-accent-dim: #1a9e5c;
+  --color-warn: #ffb020;
+  --color-danger: #ff5c7a;
+}
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: var(--font-sans);
+    color: var(--color-text);
+    background:
+      radial-gradient(1200px 600px at 10% -10%, rgba(61, 255, 154, 0.08), transparent 55%),
+      radial-gradient(900px 500px at 100% 0%, rgba(80, 140, 255, 0.07), transparent 50%),
+      linear-gradient(180deg, #07090d 0%, #0a0e15 40%, #07090d 100%);
+    background-attachment: fixed;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  #root {
+    min-height: 100vh;
+  }
+
+  ::selection {
+    background: rgba(61, 255, 154, 0.25);
+  }
+}
+
+@layer components {
+  .container-app {
+    @apply mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .card {
+    @apply rounded-2xl border border-[var(--color-line)] bg-[var(--color-panel)]/80 backdrop-blur-sm;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent)] disabled:cursor-not-allowed disabled:opacity-50 bg-[var(--color-accent)] text-ink hover:brightness-110;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent)] disabled:cursor-not-allowed disabled:opacity-50 border border-[var(--color-line)] bg-transparent text-[var(--color-text)] hover:border-[var(--color-accent)]/50 hover:bg-[var(--color-panel-2)];
+  }
+
+  .btn-danger {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent)] disabled:cursor-not-allowed disabled:opacity-50 bg-[var(--color-danger)]/15 text-[var(--color-danger)] hover:bg-[var(--color-danger)]/25;
+  }
+
+  .input {
+    @apply w-full rounded-xl border border-[var(--color-line)] bg-[var(--color-panel-2)] px-3.5 py-2.5 text-sm text-[var(--color-text)] placeholder:text-[var(--color-muted)] outline-none transition focus:border-[var(--color-accent)]/60;
+  }
+
+  .label {
+    @apply mb-1.5 block text-xs font-medium uppercase tracking-wide text-[var(--color-muted)];
+  }
+
+  .badge {
+    @apply inline-flex items-center rounded-lg px-2 py-0.5 text-xs font-semibold uppercase tracking-wide;
+  }
+}
