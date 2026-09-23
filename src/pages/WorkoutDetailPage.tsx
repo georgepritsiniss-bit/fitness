@@ -98,7 +98,7 @@ export function WorkoutDetailPage() {
           <Link to="/login" className="text-[var(--color-accent)] underline">
             Log in
           </Link>{' '}
-          to save this workout.
+          to save this workoutttt.
         </p>
       )}
       {favError && <p className="mb-4 text-sm text-[var(--color-danger)]">{favError}</p>}
